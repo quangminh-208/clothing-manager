@@ -1,0 +1,68 @@
+2024-05-13 09:06:50.3963 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:06:55.7238 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:07:10.5903 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:07:39.8973 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:39:04.3274 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:39:53.8361 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:43:20.2758 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:45:58.7747 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:50:06.5141 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:50:15.8267 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:50:40.3685 ERROR Something went wrong inside GetAllClothings action: The entity type 'OrderItem' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 09:52:42.2893 ERROR Something went wrong inside GetAllClothings action: Unknown column 'c.ClothingId' in 'field list'
+2024-05-13 09:54:02.0714 ERROR Something went wrong inside GetAllClothings action: Unknown column 'c.ClothingId' in 'field list'
+2024-05-13 09:55:42.0277 ERROR Something went wrong inside GetAllClothings action: Unknown column 'c.ClothingId' in 'field list'
+2024-05-13 09:58:44.9706 ERROR Something went wrong inside GetAll action in controller Clothing: Unknown column 'c.ClothingId' in 'field list'
+2024-05-13 10:03:23.5414 ERROR Something went wrong inside GetAll action in controller Clothing: Unknown column 'c.ClothingId' in 'field list'
+2024-05-13 10:21:03.3991 INFO Returned all clothings from database.
+2024-05-13 10:31:18.9970 INFO Returned all clothings from database.
+2024-05-13 10:34:22.1223 ERROR Something went wrong inside GetAll action in controller Clothing: The entity type 'UserOrder' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 10:34:54.8353 ERROR Something went wrong inside GetAll action in controller Clothing: The entity type 'UserOrder' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 10:35:52.7635 ERROR Something went wrong inside GetAll action in controller Clothing: The entity type 'UserOrder' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 10:36:31.1535 ERROR Something went wrong inside GetAll action in controller Clothing: The entity type 'UserOrder' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 10:37:31.9305 INFO Returned all clothings from database.
+2024-05-13 11:14:24.5242 INFO Return all clothings from database.
+2024-05-13 11:27:44.7342 INFO Return all user order from database.
+2024-05-13 11:45:41.8235 INFO Return all user order from database.
+2024-05-13 11:45:48.4081 INFO Returned all clothings from database.
+2024-05-13 14:13:11.1107 ERROR User with id: 0, hasn't been found in db.
+2024-05-13 14:13:23.7471 ERROR User with id: 0, hasn't been found in db.
+2024-05-13 14:29:13.3417 INFO Return all users from database.
+2024-05-13 14:29:53.2367 ERROR User with id: 0, hasn't been found in db.
+2024-05-13 14:31:58.0127 INFO Return user with order from database.
+2024-05-13 14:33:04.5862 INFO Return user with order from database.
+2024-05-13 14:48:38.2121 INFO Return user with order from database.
+2024-05-13 14:51:59.4345 INFO Return user with order from database.
+2024-05-13 15:00:39.1429 INFO Return user with order from database.
+2024-05-13 15:05:20.7200 INFO Returned user with id: 1
+2024-05-13 15:09:23.1577 INFO Returned user with id: 1
+2024-05-13 15:12:34.9913 INFO Returned user with id: 1
+2024-05-13 15:13:40.0030 INFO Returned user with id: 1
+2024-05-13 15:16:33.6113 INFO Return all users from database.
+2024-05-13 15:17:43.3788 INFO Returned user with id: 1
+2024-05-13 15:33:45.0234 INFO Return all user order from database.
+2024-05-13 15:33:55.4948 INFO Returned UserOrder with id: 1
+2024-05-13 15:34:36.1713 INFO Returned UserOrder with id: 1
+2024-05-13 15:40:32.8039 ERROR Something went wrong inside GetOrderWithItems action: Unknown column 'o.UserOrderId' in 'field list'
+2024-05-13 15:41:57.9047 ERROR Something went wrong inside GetOrderWithItems action: Unknown column 'o.UserOrderId' in 'field list'
+2024-05-13 15:42:56.5750 ERROR Something went wrong inside GetOrderWithItems action: The entity type 'UserOrder' requires a primary key to be defined. If you intended to use a keyless entity type call 'HasNoKey()'.
+2024-05-13 15:56:17.0749 ERROR Something went wrong inside GetOrderWithItems action: Unknown column 'o.UserOrderId' in 'field list'
+2024-05-13 16:18:47.8848 INFO Returned UserOrder with id: 1
+2024-05-13 16:27:37.5074 INFO Returned UserOrder with id: 1
+2024-05-13 16:33:09.4627 INFO Returned user with id: 1
+2024-05-13 16:35:49.7452 INFO Returned user with id: 1
+2024-05-13 16:37:03.2474 INFO Returned user with id: 1
+2024-05-13 17:10:05.6737 ERROR Something went wrong inside CreateClothing action: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Clothing -> ClothingDto
+Entities.Models.Clothing -> Entities.DataTransferObjects.ClothingDto
+2024-05-13 17:10:57.4280 ERROR Something went wrong inside CreateClothing action: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Clothing -> ClothingDto
+Entities.Models.Clothing -> Entities.DataTransferObjects.ClothingDto
+2024-05-13 17:19:15.1559 INFO Returned clothing with id: 1
+2024-05-13 17:19:38.4077 INFO Returned clothing with id: 6
+2024-05-13 17:41:58.9647 INFO Returned clothing with id: 7
+2024-05-13 17:42:31.4723 INFO Returned clothing with id: 7

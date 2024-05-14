@@ -1,0 +1,20 @@
+2024-05-14 11:55:34.3130 INFO Return all users from database.
+2024-05-14 11:55:34.4709 ERROR Something went wrong inside GetAllUsers action: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserDto
+System.Collections.Generic.List`1[[Entities.Models.User, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Entities.DataTransferObjects.UserDto
+2024-05-14 11:56:23.8395 INFO Return all users from database.
+2024-05-14 11:56:23.8888 ERROR Something went wrong inside GetAllUsers action: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> UserDto
+System.Collections.Generic.List`1[[Entities.Models.User, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Entities.DataTransferObjects.UserDto
+2024-05-14 13:48:44.0777 INFO Return all users from database.
+2024-05-14 13:48:54.9221 INFO Returned all clothings from database.
+2024-05-14 13:48:59.2294 INFO Returned clothing with id: 1
+2024-05-14 13:49:10.5167 INFO Returned user with id: 1
+2024-05-14 14:08:43.7518 ERROR Something went wrong inside GetAllClothings action: Custom exception for testing purposes
+2024-05-14 14:09:02.1556 INFO Returned all clothings from database.
+2024-05-14 14:16:25.7530 INFO Returned all clothings from database.
+2024-05-14 14:17:51.4802 INFO Returned all clothings from database.
