@@ -67,7 +67,7 @@ namespace clothes_manager.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateClothing([FromBody] ClothingForCreationDto clothing)
+        public async Task<IActionResult> CreateClothing([FromBody] ClothingForCreationDto clothing)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace clothes_manager.Controllers
 
                 var clothingEntity = _mapper.Map<Clothing>(clothing);
                 _repository.Clothing.Create(clothingEntity);
-                _repository.Save();
+                await _repository.Save();
                 var createClothing = _mapper.Map<ClothingDto>(clothingEntity);
 
                 return CreatedAtRoute("ClothingById", new { id = createClothing.Id }, createClothing);
@@ -120,7 +120,7 @@ namespace clothes_manager.Controllers
                 }
                 _mapper.Map(clothing, clothingEntity);
                 _repository.Clothing.UpdateClothing(clothingEntity);
-                _repository.Save();
+                await _repository.Save();
 
                 return NoContent();
             }
@@ -144,7 +144,7 @@ namespace clothes_manager.Controllers
                 }
 
                 _repository.Clothing.DeleteClothing(clothing);
-                _repository.Save();
+                await _repository.Save();
                 return NoContent();
             }
             catch (Exception ex)

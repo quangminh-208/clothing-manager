@@ -97,7 +97,7 @@ namespace clothes_manager.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUser([FromBody] UserForCreationDto user)
+        public async Task<IActionResult> CreateUser([FromBody] UserForCreationDto user)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace clothes_manager.Controllers
 
                 var userEntity = _mapper.Map<User>(user);
                 _repository.User.Create(userEntity);
-                _repository.Save();
+                await _repository.Save();
                 var createUser = _mapper.Map<UserDto>(userEntity);
 
                 return CreatedAtRoute("UserById", new { id = createUser.Id }, createUser);
@@ -150,7 +150,7 @@ namespace clothes_manager.Controllers
                 }
                 _mapper.Map(user, userEntity);
                 _repository.User.UpdateUser(userEntity);
-                _repository.Save();
+                await _repository.Save();
 
                 return NoContent();
             }
@@ -174,7 +174,7 @@ namespace clothes_manager.Controllers
                 }
 
                 _repository.User.DeleteUser(user);
-                _repository.Save();
+                await _repository.Save();
                 return NoContent();
             }
             catch (Exception ex)

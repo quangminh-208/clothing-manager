@@ -1,4 +1,6 @@
-﻿namespace Contracts
+﻿using System.Threading.Tasks;
+
+namespace Contracts
 {
     public interface IRepositoryWrapper
     {
@@ -6,6 +8,6 @@
         IUserRepository User { get; }
         IUserOrderRepository UserOrder { get; }
         IOrderItemRepository OrderItem { get; }
-        void Save();
+        Task Save();
     }
 }
