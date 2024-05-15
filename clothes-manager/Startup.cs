@@ -47,12 +47,8 @@ namespace clothes_manager
 
             app.UseAuthorization();
 
-            // Custom a middleware
-            app.Run(async context =>
-            {
-                Console.WriteLine($"Writing the response to the client in the Run method");
-                await context.Response.WriteAsync("Hello from the custom middleware component!!!");
-            });
+            // Use custom a middleware
+            app.UseCustomMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

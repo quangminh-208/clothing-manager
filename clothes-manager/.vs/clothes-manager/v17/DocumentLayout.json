@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|c:\\quangminh\\workspace\\clothes-manager\\clothes-manager\\extensions\\custommiddlewareextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:extensions\\custommiddlewareextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|c:\\quangminh\\workspace\\clothes-manager\\clothes-manager\\custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:custommiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|c:\\quangminh\\workspace\\clothes-manager\\clothes-manager\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -28,8 +36,34 @@
         },
         {
           "DockedWidth": 244,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomMiddlewareExtension.cs",
+              "DocumentMoniker": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Extensions\\CustomMiddlewareExtension.cs",
+              "RelativeDocumentMoniker": "Extensions\\CustomMiddlewareExtension.cs",
+              "ToolTip": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Extensions\\CustomMiddlewareExtension.cs",
+              "RelativeToolTip": "Extensions\\CustomMiddlewareExtension.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T03:24:58.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomMiddleware.cs",
+              "DocumentMoniker": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\CustomMiddleware.cs",
+              "RelativeDocumentMoniker": "CustomMiddleware.cs",
+              "ToolTip": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\CustomMiddleware.cs",
+              "RelativeToolTip": "CustomMiddleware.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T03:22:12.172Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -38,14 +72,14 @@
               "RelativeDocumentMoniker": "Startup.cs",
               "ToolTip": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Startup.cs",
               "RelativeToolTip": "Startup.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAwwDAAAAAAAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAwwDIAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T03:10:16.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
