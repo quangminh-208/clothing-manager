@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|c:\\quangminh\\workspace\\clothes-manager\\clothes-manager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|c:\\quangminh\\workspace\\clothes-manager\\clothes-manager\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C51F882F-2C9E-48BC-B163-B2859E3B18D7}|clothes-manager.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,12 +33,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAwwDAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T03:10:16.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\QuangMinh\\Workspace\\clothes-manager\\clothes-manager\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAJAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAxwB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T02:56:55.632Z",
               "EditorCaption": ""

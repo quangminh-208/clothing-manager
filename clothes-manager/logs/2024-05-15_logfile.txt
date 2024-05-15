@@ -6,3 +6,12 @@
 2024-05-15 10:00:18.9038 INFO Returned all users from database.
 2024-05-15 10:00:27.1299 INFO Returned user with id: 3
 2024-05-15 10:01:35.1222 INFO Returned all users from database.
+2024-05-15 10:18:20.6423 INFO Returned clothing with id: 1
+2024-05-15 10:18:22.7258 INFO Returned clothing with id: 1
+2024-05-15 10:18:35.8237 INFO Returned all clothings from database.
+2024-05-15 10:18:56.3606 INFO Returned all clothings from database.
+2024-05-15 10:18:57.7164 INFO Returned all clothings from database.
+2024-05-15 10:18:58.0222 INFO Returned all clothings from database.
+2024-05-15 10:18:58.1745 INFO Returned all clothings from database.
+2024-05-15 10:18:58.3467 INFO Returned all clothings from database.
+2024-05-15 10:18:58.5149 INFO Returned all clothings from database.

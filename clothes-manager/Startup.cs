@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using Microsoft.AspNetCore.Http;
 
 namespace clothes_manager
 {
@@ -45,6 +46,13 @@ namespace clothes_manager
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Custom a middleware
+            app.Run(async context =>
+            {
+                Console.WriteLine($"Writing the response to the client in the Run method");
+                await context.Response.WriteAsync("Hello from the custom middleware component!!!");
+            });
 
             app.UseEndpoints(endpoints =>
             {
