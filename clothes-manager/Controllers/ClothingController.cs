@@ -7,9 +7,8 @@ using Entities.DataTransferObjects;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.EntityFrameworkCore;
-using clothes_manager.Method;
 using System.Linq;
-using clothes_manager.Action;
+using System.Linq.Expressions;
 
 namespace clothes_manager.Controllers
 {
@@ -20,7 +19,6 @@ namespace clothes_manager.Controllers
         private ILoggerManager _logger;
         private ApplicationContext _context;
         private IMapper _mapper;
-        private IClothingAction _clothingAction;
         public ClothingController(ApplicationContext context, ILoggerManager logger, IMapper mapper)
         {
             _context = context;
@@ -28,22 +26,14 @@ namespace clothes_manager.Controllers
             _mapper = mapper;
         }
 
-        public IClothingAction ClothingAction
-        {
-            get
-            {
-                if (_clothingAction == null)
-                    _clothingAction = new ClothingAction(_context);
-                return _clothingAction;
-            }
-        }
-
         [HttpGet("/clothing")]
         public async Task<IActionResult> GetAllClothings()
         {
             try
             {
-                var clothings = await ClothingAction.GetAllClothings();
+                var clothings = await _context.Set<Clothing>()
+                    .AsNoTracking()
+                    .ToListAsync();
 
                 _logger.LogInfo($"Returned all clothings from database.");
                 return Ok(clothings);
@@ -60,7 +50,11 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var clothing = await ClothingAction.GetClothingById(id);
+                var clothing = await _context.Set<Clothing>()
+                    .AsQueryable()
+                    .Where(clo => clo.Id == id)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
                 if (clothing == null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
@@ -100,7 +94,7 @@ namespace clothes_manager.Controllers
                 }
 
                 var clothingEntity = _mapper.Map<Clothing>(clothing);
-                ClothingAction.Create(clothingEntity);
+                _context.Set<Clothing>().Add(clothingEntity);
                 await _context.SaveChangesAsync();
                 var createClothing = _mapper.Map<ClothingDto>(clothingEntity);
 
@@ -129,14 +123,20 @@ namespace clothes_manager.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var clothingEntity = await ClothingAction.GetClothingById(id);
+                var clothingEntity = await _context.Set<Clothing>()
+                    .AsQueryable()
+                    .Where(clo => clo.Id == id)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
                 if (clothingEntity is null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
                 _mapper.Map(clothing, clothingEntity);
-                ClothingAction.UpdateClothing(clothingEntity);
+
+                _context.Set<Clothing>().Update(clothingEntity);
+
                 await _context.SaveChangesAsync();
 
                 return NoContent();
@@ -153,14 +153,18 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var clothing = await ClothingAction.GetClothingById(id);
+                var clothing = await _context.Set<Clothing>()
+                    .AsQueryable()
+                    .Where(clo => clo.Id == id)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
                 if (clothing == null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
 
-                ClothingAction.DeleteClothing(clothing);
+                _context.Set<Clothing>().Remove(clothing);
                 await _context.SaveChangesAsync();
                 return NoContent();
             }

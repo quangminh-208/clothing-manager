@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("clothes-manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7c063f0acd0d3cc4563633dce678c1924fc0627")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e37c741797201c118c5b1e8cd2e5d249fbc7c4a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("clothes-manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("clothes-manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

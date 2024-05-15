@@ -16,3 +16,8 @@
 2024-05-15 10:18:58.3467 INFO Returned all clothings from database.
 2024-05-15 10:18:58.5149 INFO Returned all clothings from database.
 2024-05-15 10:29:44.8426 INFO Returned all clothings from database.
+2024-05-15 11:18:12.2904 INFO Returned all clothings from database.
+2024-05-15 11:25:23.3677 INFO Returned clothing with id: 1
+2024-05-15 11:33:39.6587 INFO Returned clothing with id: 1
+2024-05-15 11:40:42.0237 ERROR Something went wrong inside CreateUser action: An error occurred while updating the entries. See the inner exception for details.
+2024-05-15 11:41:53.5392 INFO Returned all users from database.

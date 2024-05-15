@@ -7,9 +7,8 @@ using Entities.DataTransferObjects;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.EntityFrameworkCore;
-using clothes_manager.Method;
 using System.Linq;
-using clothes_manager.Action;
+
 
 namespace clothes_manager.Controllers
 {
@@ -20,7 +19,6 @@ namespace clothes_manager.Controllers
         private ILoggerManager _logger;
         private ApplicationContext _context;
         private IMapper _mapper;    
-        private IUserAction _userAction;
         public UserController(ApplicationContext context, ILoggerManager logger, IMapper mapper)
         {
             _context = context;
@@ -28,22 +26,14 @@ namespace clothes_manager.Controllers
             _mapper = mapper;
         }
 
-        public IUserAction UserAction
-        {
-            get
-            {
-                if (_userAction == null)
-                    _userAction = new UserAction(_context);
-                return _userAction;
-            }
-        }
-
         [HttpGet("/user")]
         public async Task<IActionResult> GetAllUsers()
         {
             try
             {
-                var users = await UserAction.GetAllUsers();
+                var users = await _context.Set<User>()
+                    .AsNoTracking()
+                    .ToListAsync();
 
                 _logger.LogInfo($"Returned all users from database.");
                 return Ok(users);
@@ -60,7 +50,10 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var user = await UserAction.GetUserById(id);
+                var user = await _context.Set<User>()
+                    .AsQueryable()
+                    .Where(u => u.Id == id)
+                    .FirstOrDefaultAsync();
                 if (user == null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
@@ -100,7 +93,7 @@ namespace clothes_manager.Controllers
                 }
 
                 var userEntity = _mapper.Map<User>(user);
-                UserAction.Create(userEntity);
+                _context.Set<User>().Add(userEntity);
                 await _context.SaveChangesAsync();
                 var createUser = _mapper.Map<UserDto>(userEntity);
 
@@ -129,14 +122,17 @@ namespace clothes_manager.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var userEntity = await UserAction.GetUserById(id);
+                var userEntity = await _context.Set<User>()
+                    .AsQueryable()
+                    .Where(u => u.Id == id)
+                    .FirstOrDefaultAsync();
                 if (userEntity is null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
                 _mapper.Map(user, userEntity);
-                UserAction.UpdateUser(userEntity);
+                _context.Set<User>().Update(userEntity);
                 await _context.SaveChangesAsync();
 
                 return NoContent();
@@ -153,14 +149,17 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var user = await UserAction.GetUserById(id);
+                var user = await _context.Set<User>()
+                    .AsQueryable()
+                    .Where(u => u.Id == id)
+                    .FirstOrDefaultAsync();
                 if (user == null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
 
-                UserAction.DeleteUser(user);
+                _context.Set<User>().Remove(user);
                 await _context.SaveChangesAsync();
                 return NoContent();
             }
