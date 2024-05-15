@@ -18,3 +18,13 @@ System.Collections.Generic.List`1[[Entities.Models.User, Entities, Version=1.0.0
 2024-05-14 14:09:02.1556 INFO Returned all clothings from database.
 2024-05-14 14:16:25.7530 INFO Returned all clothings from database.
 2024-05-14 14:17:51.4802 INFO Returned all clothings from database.
+2024-05-14 14:39:36.0722 INFO Returned all clothings from database.
+2024-05-14 14:51:14.8205 INFO Return all users from database.
+2024-05-14 14:54:08.0627 INFO Return all users from database.
+2024-05-14 15:26:32.9955 INFO Returned all clothings from database.
+2024-05-14 15:26:32.9955 INFO Returned all clothings from database.
+2024-05-14 15:26:41.3284 INFO Returned all clothings from database.
+2024-05-14 15:32:47.0560 INFO Returned all clothings from database.
+2024-05-14 17:48:55.2525 INFO Returned all clothings from database.
+2024-05-14 18:13:52.4298 INFO Returned all clothings from database.
+2024-05-14 18:13:52.4298 INFO Returned all clothings from database.

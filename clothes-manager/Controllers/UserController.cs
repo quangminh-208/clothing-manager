@@ -2,9 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using AutoMapper;
-using Entities.DataTransferObjects;
 using Entities.Models;
+using Entities.DataTransferObjects;
 using System.Threading.Tasks;
+using Entities;
+using Microsoft.EntityFrameworkCore;
+using clothes_manager.Method;
+using System.Linq;
+using clothes_manager.Action;
 
 namespace clothes_manager.Controllers
 {
@@ -13,25 +18,35 @@ namespace clothes_manager.Controllers
     public class UserController : ControllerBase
     {
         private ILoggerManager _logger;
-        private IRepositoryWrapper _repository;
-        private IMapper _mapper;
-        public UserController(ILoggerManager logger, IRepositoryWrapper repository, IMapper mapper)
+        private ApplicationContext _context;
+        private IMapper _mapper;    
+        private IUserAction _userAction;
+        public UserController(ApplicationContext context, ILoggerManager logger, IMapper mapper)
         {
+            _context = context;
             _logger = logger;
-            _repository = repository;
-            _mapper = mapper;   
+            _mapper = mapper;
         }
 
-        [HttpGet]
+        public IUserAction UserAction
+        {
+            get
+            {
+                if (_userAction == null)
+                    _userAction = new UserAction(_context);
+                return _userAction;
+            }
+        }
+
+        [HttpGet("/user")]
         public async Task<IActionResult> GetAllUsers()
         {
             try
             {
-                var user = await _repository.User.GetAllUsers();
+                var users = await UserAction.GetAllUsers();
 
-                _logger.LogInfo($"Return all users from database.");
-
-                return Ok(user);
+                _logger.LogInfo($"Returned all users from database.");
+                return Ok(users);
             }
             catch (Exception ex)
             {
@@ -40,12 +55,12 @@ namespace clothes_manager.Controllers
             }
         }
 
-        [HttpGet("{id}", Name ="UserById")]
+        [HttpGet("{id}", Name = "UserById")]
         public async Task<IActionResult> GetUserById(int id)
         {
             try
             {
-                var user = await _repository.User.GetUserById(id);
+                var user = await UserAction.GetUserById(id);
                 if (user == null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
@@ -63,35 +78,7 @@ namespace clothes_manager.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong inside GetAllUsers action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("{id}/userorder")]
-        public async Task<IActionResult> GetUserWithOrders(int id)
-        {
-            try
-            {
-                var user = await _repository.User.GetUserWithOrders(id);
-                if (user == null)
-                {
-                    _logger.LogError($"User with id: {id}, hasn't been found in db.");
-                    return NotFound();
-                }
-                else
-                {
-                    _logger.LogInfo($"Returned user with id: {id}");
-
-                    var userResult = _mapper.Map<UserDto>(user);
-
-                    //return Ok("okk");
-                    return Ok(userResult);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong inside GetUserWithOrders action: {ex.Message}");
+                _logger.LogError($"Something went wrong inside GetUserById action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -113,8 +100,8 @@ namespace clothes_manager.Controllers
                 }
 
                 var userEntity = _mapper.Map<User>(user);
-                _repository.User.Create(userEntity);
-                await _repository.Save();
+                UserAction.Create(userEntity);
+                await _context.SaveChangesAsync();
                 var createUser = _mapper.Map<UserDto>(userEntity);
 
                 return CreatedAtRoute("UserById", new { id = createUser.Id }, createUser);
@@ -142,15 +129,15 @@ namespace clothes_manager.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var userEntity = await _repository.User.GetUserById(id);
+                var userEntity = await UserAction.GetUserById(id);
                 if (userEntity is null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
                 _mapper.Map(user, userEntity);
-                _repository.User.UpdateUser(userEntity);
-                await _repository.Save();
+                UserAction.UpdateUser(userEntity);
+                await _context.SaveChangesAsync();
 
                 return NoContent();
             }
@@ -166,15 +153,15 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var user = await _repository.User.GetUserById(id);
+                var user = await UserAction.GetUserById(id);
                 if (user == null)
                 {
                     _logger.LogError($"User with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
 
-                _repository.User.DeleteUser(user);
-                await _repository.Save();
+                UserAction.DeleteUser(user);
+                await _context.SaveChangesAsync();
                 return NoContent();
             }
             catch (Exception ex)
@@ -182,8 +169,7 @@ namespace clothes_manager.Controllers
                 _logger.LogError($"Something went wrong inside DeleteUser action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
-
-
         }
     }
 }
+

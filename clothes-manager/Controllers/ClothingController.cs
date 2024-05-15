@@ -5,6 +5,11 @@ using AutoMapper;
 using Entities.Models;
 using Entities.DataTransferObjects;
 using System.Threading.Tasks;
+using Entities;
+using Microsoft.EntityFrameworkCore;
+using clothes_manager.Method;
+using System.Linq;
+using clothes_manager.Action;
 
 namespace clothes_manager.Controllers
 {
@@ -13,21 +18,33 @@ namespace clothes_manager.Controllers
     public class ClothingController : ControllerBase
     {
         private ILoggerManager _logger;
-        private IRepositoryWrapper _repository;
+        private ApplicationContext _context;
         private IMapper _mapper;
-        public ClothingController(ILoggerManager logger, IRepositoryWrapper repository, IMapper mapper)
+        private IClothingAction _clothingAction;
+        public ClothingController(ApplicationContext context, ILoggerManager logger, IMapper mapper)
         {
+            _context = context;
             _logger = logger;
-            _repository = repository;
             _mapper = mapper;
         }
 
-        [HttpGet]
+        public IClothingAction ClothingAction
+        {
+            get
+            {
+                if (_clothingAction == null)
+                    _clothingAction = new ClothingAction(_context);
+                return _clothingAction;
+            }
+        }
+
+        [HttpGet("/clothing")]
         public async Task<IActionResult> GetAllClothings()
         {
             try
             {
-                var clothings = await _repository.Clothing.GetAllClothings();
+                var clothings = await ClothingAction.GetAllClothings();
+
                 _logger.LogInfo($"Returned all clothings from database.");
                 return Ok(clothings);
             }
@@ -43,7 +60,7 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var clothing = await _repository.Clothing.GetClothingById(id);
+                var clothing = await ClothingAction.GetClothingById(id);
                 if (clothing == null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
@@ -83,8 +100,8 @@ namespace clothes_manager.Controllers
                 }
 
                 var clothingEntity = _mapper.Map<Clothing>(clothing);
-                _repository.Clothing.Create(clothingEntity);
-                await _repository.Save();
+                ClothingAction.Create(clothingEntity);
+                await _context.SaveChangesAsync();
                 var createClothing = _mapper.Map<ClothingDto>(clothingEntity);
 
                 return CreatedAtRoute("ClothingById", new { id = createClothing.Id }, createClothing);
@@ -112,15 +129,15 @@ namespace clothes_manager.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var clothingEntity = await _repository.Clothing.GetClothingById(id);
+                var clothingEntity = await ClothingAction.GetClothingById(id);
                 if (clothingEntity is null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
                 _mapper.Map(clothing, clothingEntity);
-                _repository.Clothing.UpdateClothing(clothingEntity);
-                await _repository.Save();
+                ClothingAction.UpdateClothing(clothingEntity);
+                await _context.SaveChangesAsync();
 
                 return NoContent();
             }
@@ -136,15 +153,15 @@ namespace clothes_manager.Controllers
         {
             try
             {
-                var clothing = await _repository.Clothing.GetClothingById(id);
+                var clothing = await ClothingAction.GetClothingById(id);
                 if (clothing == null)
                 {
                     _logger.LogError($"Clothing with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
 
-                _repository.Clothing.DeleteClothing(clothing);
-                await _repository.Save();
+                ClothingAction.DeleteClothing(clothing);
+                await _context.SaveChangesAsync();
                 return NoContent();
             }
             catch (Exception ex)

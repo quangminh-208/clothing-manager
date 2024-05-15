@@ -25,7 +25,6 @@ namespace clothes_manager
         {
             services.ConfigureLoggerService();
             services.ConfigureMySqlContext(Configuration);
-            services.ConfigureRepositoryWrapper();
             services.AddAutoMapper(typeof(Program));
 
             services.AddControllers();

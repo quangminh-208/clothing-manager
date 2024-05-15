@@ -1,0 +1,8 @@
+2024-05-15 09:09:12.1016 ERROR Something went wrong inside GetAllClothings action: Object reference not set to an instance of an object.
+2024-05-15 09:49:46.6797 INFO Returned all clothings from database.
+2024-05-15 09:50:02.4396 INFO Returned all clothings from database.
+2024-05-15 09:54:48.6545 INFO Returned all clothings from database.
+2024-05-15 09:54:50.2833 INFO Returned clothing with id: 1
+2024-05-15 10:00:18.9038 INFO Returned all users from database.
+2024-05-15 10:00:27.1299 INFO Returned user with id: 3
+2024-05-15 10:01:35.1222 INFO Returned all users from database.

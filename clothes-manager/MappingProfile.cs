@@ -8,15 +8,13 @@ namespace clothes_manager
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDto>();
-            CreateMap<UserForCreationDto, User>();
-            CreateMap<UserForUpdateDto, User>();
-
-            CreateMap<UserOrder, UserOrderDto>();
-
             CreateMap<Clothing, ClothingDto>();
             CreateMap<ClothingForCreationDto, Clothing>();
             CreateMap<ClothingForUpdateDto, Clothing>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserForCreationDto, User>();
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }

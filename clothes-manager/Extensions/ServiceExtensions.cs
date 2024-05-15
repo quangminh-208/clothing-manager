@@ -6,7 +6,7 @@ using Entities;
 using Microsoft.AspNetCore.Builder;
 using Contracts;
 using LoggerService;
-using Repository;
+using Entities.Models;
 
 
 namespace clothes_manager.Extensions
@@ -22,12 +22,7 @@ namespace clothes_manager.Extensions
         {
             var connectionString = config["mysqlconnection:connectionString"];
 
-            services.AddDbContext<RepositoryContext>(o => o.UseMySql(connectionString));
-        }
-
-        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
-        {
-            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddDbContext<ApplicationContext>(opts => opts.UseMySql(connectionString));
         }
     }
 }
